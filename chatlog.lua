@@ -68,7 +68,7 @@ local function LogMessage(ChatType, Player, Message, TargetPlayer)
     if 
     (string.find(Message, "hack")) or 
     (string.find(Message, "cheat")) or 
-    (string.find(Message, "/e")) or 
+    (string.find(Message, "/")) or 
     (string.find(Message, ":")) or 
     (string.find(Message, string.sub(LocalPlayer.Name, 1, 3))) then
         Colour = "@@RED@@"
