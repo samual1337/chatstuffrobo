@@ -65,13 +65,28 @@ local function LogMessage(ChatType, Player, Message, TargetPlayer)
     end
 
     -- includes added --
-    if (string.find(Message, LocalPlayer.Name)) or (string.find(Message, ":log")) or (string.find(Message, ":view")) or (string.find(Message, "/e")) then
+    if (string.find(Message, LocalPlayer.Name)) or (string.find(Message, ":log")) or (string.find(Message, ":view")) or (string.find(Message, "/e") or (string.find(Message, getPlayer(LocalPlayer.Name))  or (string.find(Message, "report")) then
         Colour = "@@RED@@"
         game:GetService'StarterGui':SetCore('SendNotification', {
             Title = 'WARNING',
             Text = Prefix .. Player.Name .. ': ' .. Message,
             Duration = 5
           })
+    end
+
+    function getPlayer(shortcut)
+        local player = nil
+      
+        local g = game.Players:GetPlayers()
+        for i = 1, #g do
+          if string.lower(string.sub(g[i].Name, 1, string.len(shortcut))) == string.lower(shortcut) then
+            player = g[i]
+            break
+          end
+        end
+      
+        return player
+      
     end
     -- end --
     
