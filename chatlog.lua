@@ -65,7 +65,7 @@ local function LogMessage(ChatType, Player, Message, TargetPlayer)
     end
 
     -- includes added --
-    if (string.find(Message, LocalPlayer.Name)) or (string.find(Message, ":log")) or (string.find(Message, ":view")) or (string.find(Message, "/e")) or (string.find(Message, "report")) then
+    if (string.find(Message, LocalPlayer.Name)) or (string.find(Message, ":log")) or (string.find(Message, ":view")) or (string.find(Message, "/e")) then
         Colour = "@@RED@@"
         game:GetService'StarterGui':SetCore('SendNotification', {
             Title = 'WARNING',
