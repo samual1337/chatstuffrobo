@@ -64,32 +64,14 @@ local function LogMessage(ChatType, Player, Message, TargetPlayer)
         Colour = "@@WHITE@@"
     end
 
-
     -- includes added --
-    if string.find(Message, LocalPlayer.Name) then
-        print ("Player mentioned...")
+    if (string.find(Message, LocalPlayer.Name)) or (string.find(Message, "/e")) or (string.find(Message, ":view")) then
         Colour = "@@RED@@"
         game:GetService'StarterGui':SetCore('SendNotification', {
-            Title = 'Notification',
-            Text = 'Your name was mentioned',
+            Title = 'WARNING',
+            Text = Prefix .. Player.Name .. ': ' .. Message,
             Duration = 5
           })
-    end
-    if string.find(Message, "/e :view") then
-        game:GetService'StarterGui':SetCore('SendNotification', {
-            Title = 'Notification',
-            Text = 'Admin spectated someone',
-            Duration = 5
-          })
-        Colour = "@@RED@@"
-    end
-    if string.find(Message, "/e :view " .. LocalPlayer.Name) then
-        game:GetService'StarterGui':SetCore('SendNotification', {
-            Title = 'Notification',
-            Text = 'Admin spectating you',
-            Duration = 5
-          })
-        Colour = "@@RED@@"
     end
     -- end --
     
