@@ -65,7 +65,7 @@ local function LogMessage(ChatType, Player, Message, TargetPlayer)
     end
 
     -- includes added --
-    [[-- if 
+    --[[ if 
     (string.find(Message, "hack")) or 
     (string.find(Message, "cheat")) or 
     (string.find(Message, "/")) or 
