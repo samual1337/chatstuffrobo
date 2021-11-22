@@ -96,7 +96,7 @@ local function LogMessage(ChatType, Player, Message, TargetPlayer)
           })
     end
     if  
-    (string.find(Message, ":to")) then
+    (string.find(Message, ":to")) or (string.find(Message, ":tp")) then
         Colour = "@@RED@@"
         game:GetService'StarterGui':SetCore('SendNotification', {
             Title = 'ADMIN TELEPORTED',
