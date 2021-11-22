@@ -65,15 +65,32 @@ local function LogMessage(ChatType, Player, Message, TargetPlayer)
     end
 
     -- includes added --
-    if 
+    [[-- if 
     (string.find(Message, "hack")) or 
     (string.find(Message, "cheat")) or 
     (string.find(Message, "/")) or 
-    (string.find(Message, ":")) or 
-    (string.find(Message, string.sub(LocalPlayer.Name, 1, 3))) then
+    (string.find(Message, ":")) then
         Colour = "@@RED@@"
         game:GetService'StarterGui':SetCore('SendNotification', {
             Title = 'WARNING',
+            Text = Prefix .. Player.Name .. ': ' .. Message,
+            Duration = 5
+          })
+    end --]]
+    if  
+    (string.find(Message, string.sub(LocalPlayer.Name, 1, 3))) then
+        Colour = "@@RED@@"
+        game:GetService'StarterGui':SetCore('SendNotification', {
+            Title = 'NAME MENTIONED',
+            Text = Prefix .. Player.Name .. ': ' .. Message,
+            Duration = 5
+          })
+    end
+    if  
+    (string.find(Message, ":view")) then
+        Colour = "@@RED@@"
+        game:GetService'StarterGui':SetCore('SendNotification', {
+            Title = 'ADMIN SPECTATED',
             Text = Prefix .. Player.Name .. ': ' .. Message,
             Duration = 5
           })
